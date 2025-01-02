@@ -129,6 +129,19 @@ namespace SV21T1080059.DataLayers.SQLServer
 
             return data;
         }
+        public List<Shipper> List()
+        {
+            List<Shipper> data = new List<Shipper>();
+
+            using (var connection = OpenConnection())
+            {
+                var sql = @"select * from Shippers";
+                data = connection.Query<Shipper>(sql: sql, commandType: System.Data.CommandType.Text).ToList();
+                connection.Close();
+            }
+
+            return data;
+        }
 
         public bool Update(Shipper data)
         {

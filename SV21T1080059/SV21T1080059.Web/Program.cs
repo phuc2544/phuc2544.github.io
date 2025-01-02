@@ -50,7 +50,7 @@ internal class Program
 
         ApplicationContext.Configure
         (
-             context: app.Services.GetRequiredService<IHttpContextAccessor>(),
+            context: app.Services.GetRequiredService<IHttpContextAccessor>(),
             enviroment: app.Services.GetRequiredService<IWebHostEnvironment>()
         );
 

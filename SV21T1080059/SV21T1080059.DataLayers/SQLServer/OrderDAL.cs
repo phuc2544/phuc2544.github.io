@@ -23,10 +23,10 @@ namespace SV21T1080059.DataLayers.SQLServer
             int id = 0;
             using (var connection = OpenConnection())
             {
-                var sql = @"insert into Orders(CustomerId, OrderTime,
+                var sql = @"insert into Orders(CustomerId, OrderTime, Phone,
                                                 DeliveryProvince, DeliveryAddress,
                                                 EmployeeID, Status)
-                            values(@CustomerID, getdate(),
+                            values(@CustomerID, getdate(), @CustomerPhone,
                                     @DeliveryProvince, @DeliveryAddress,
                                     @EmployeeID, @Status);
                             select @@identity";
@@ -36,7 +36,8 @@ namespace SV21T1080059.DataLayers.SQLServer
                     DeliveryProvince = data.DeliveryProvince ?? "",
                     DeliveryAddress = data.DeliveryAddress ?? "",
                     EmployeeID = data.EmployeeID,
-                    Status = data.Status
+                    Status = Constants.ORDER_INIT,
+                    CustomerPhone = data.CustomerPhone,
                 };
                 id = connection.ExecuteScalar<int>(sql, param: parameters, commandType: System.Data.CommandType.Text);
                 connection.Close();

@@ -13,6 +13,7 @@ namespace SV21T1080059.BusinessLayers
     {
         private static readonly IOrderDAL orderDB;
         private static readonly ISimpleSelectDAL<Statuss> statusDB;
+        private static readonly IOrderOfCustomerDAL orderOfCustomerDB;
         /// <summary>
         /// Ctor
         /// </summary>
@@ -20,7 +21,17 @@ namespace SV21T1080059.BusinessLayers
         {
             orderDB = new OrderDAL(Configuration.ConnectionString);
             statusDB = new StatusDAL(Configuration.ConnectionString);
+            orderOfCustomerDB = new OrderOfCustomerDAL(Configuration.ConnectionString);
         }
+        public static List<OrderOfCustomer> ListOrderOfCustomer(int customerID, int status = 0, string searchValue = "")
+        {
+            return (List<OrderOfCustomer>)orderOfCustomerDB.List(customerID, status, searchValue);
+        }
+        public static int GetSoldOrderOfCustomer(int productID)
+        {
+            return orderOfCustomerDB.ListSold(productID);
+        }
+
         /// <summary>
         /// Tìm kiếm và lấy danh sách đơn hàng dưới dạng phân trang
         /// </summary>
@@ -58,7 +69,7 @@ namespace SV21T1080059.BusinessLayers
         /// <param name="deliveryAddress"></param>
         /// <param name="details"></param>
         /// <returns></returns>
-        public static int InitOrder(int employeeID, int customerID,
+        public static int InitOrder(int employeeID, int customerID, string customerPhone,
                                     string deliveryProvince, string deliveryAddress,
                                     IEnumerable<OrderDetail> details)
         {
@@ -68,8 +79,9 @@ namespace SV21T1080059.BusinessLayers
             {
                 EmployeeID = employeeID,
                 CustomerID = customerID,
+                CustomerPhone = customerPhone,
                 DeliveryProvince = deliveryProvince,
-                DeliveryAddress = deliveryAddress
+                DeliveryAddress = deliveryAddress,
             };
             int orderID = orderDB.Add(data);
             if (orderID > 0)

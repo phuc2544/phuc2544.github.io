@@ -21,8 +21,8 @@ namespace SV21T1080059.DataLayers.SQLServer
 	                            select -1
                             else 
 	                            begin
-                                    insert into Employees(FullName, BirthDate, Address, Phone, Email, Photo, IsWorking)
-                                    values (@FullName, @BirthDate, @Address, @Phone, @Email, @Photo, @IsWorking);
+                                    insert into Employees(FullName, BirthDate, Address, Phone, Email, Photo, IsWorking, Password)
+                                    values (@FullName, @BirthDate, @Address, @Phone, @Email, @Photo, @IsWorking, 1);
                                     select @@IDENTITY;
                                 end";
                 var parameters = new
@@ -133,7 +133,19 @@ namespace SV21T1080059.DataLayers.SQLServer
 
             return data;
         }
+        public List<Employee> List()
+        {
+            List<Employee> data = new List<Employee>();
 
+            using (var connection = OpenConnection())
+            {
+                var sql = @"select * from Employees where IsWorking = 1";
+                data = connection.Query<Employee>(sql: sql, commandType: System.Data.CommandType.Text).ToList();
+                connection.Close();
+            }
+
+            return data;
+        }
         public bool Update(Employee data)
         {
             bool result = false;

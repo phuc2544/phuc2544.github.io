@@ -1,0 +1,141 @@
+﻿@model IEnumerable<CartItem>
+@{
+    Layout = null;
+
+    int stt = 0;
+    decimal sumOfPrice = 0;
+}
+<!-- Giỏ hàng -->
+<div class="row">
+    @if (Model.Count() > 0)
+    {
+        @foreach (var item in Model)
+        {
+            <div class="col-md-2 text-center">
+                <img src="@(string.IsNullOrEmpty(item.Photo) ? Url.Content($"~/images/products/nophoto.png") : Url.Content($"~/images/products/{item.Photo}"))"
+                     alt="" style="height: 90px; width: 90px;" />
+            </div>
+            <div class="col-md-4">
+                <p class="clamp-2-lines" title="@item.ProductName" style="font-size: 16px; font-weight: bold;">@item.ProductName</p>
+            </div>
+            <div class="col-md-3">
+                <p style="font-size: 14px;">@item.SalePrice.ToString("N0") đ</p>
+            </div>
+            <div class="col-md-2">
+                <a href="javascript:void(0);" class="btn btn-sm btn-secondary btn-decrease" data-id="@item.ProductID">-</a>
+                <span class="mx-2" id="quantity-@item.ProductID" data-price="@item.SalePrice">@item.Quantity</span>
+                <a href="javascript:void(0);" class="btn btn-sm btn-secondary btn-increase" data-id="@item.ProductID">+</a>
+            </div>
+
+            <div class="col-md-1 text-center">
+                <a href="~/Shopping/RemoveFromCart/@item.ProductID"
+                   class="text-danger ajax-link"
+                   onclick="return confirm('Xoá mặt hàng @item.ProductName ra khỏi giỏ hàng?');">
+                    Xoá
+                </a>
+
+            </div>
+            sumOfPrice += item.TotalPrice;
+        }
+
+    }
+    else
+    {
+        <div class="col-md-12 text-center">
+            <p>Giỏ hàng trống</p>
+        </div>
+    }
+
+    <div class="col-md-12 text-right">
+        <a href="~/Shopping/ClearCart" class="btn btn-sm btn-danger ajax-link"
+           onclick="return confirm('Có muốn xóa giỏ hàng không?')">
+            <i class="fa fa-trash"></i> Xóa giỏ hàng
+        </a>
+    </div>
+    <div class="col-md-12 text-right">
+        <h4>
+            <b>Tổng thanh toán:</b>
+            <span id="sumOfPrice">@sumOfPrice.ToString("N0")</span>
+            đ
+        </h4>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Xử lý nút tăng số lượng
+        $(".btn-increase").click(function () {
+            var productId = $(this).data("id");
+            updateCart(productId, 1); // Tăng số lượng
+        });
+
+        // Xử lý nút giảm số lượng
+        $(".btn-decrease").click(function () {
+            var productId = $(this).data("id");
+            updateCart(productId, -1); // Giảm số lượng
+        });
+
+        // Hàm cập nhật giỏ hàng qua AJAX
+        function updateCart(productId, change) {
+            var url = change > 0 ? '/Shopping/AddFromCart' : '/Shopping/RemoveFromCart';
+            var data = { id: productId };
+
+            $.ajax({
+                url: url,
+                type: "GET", // Chúng ta sẽ dùng GET cho cả Add và Remove vì chỉ cần thêm id
+                data: data,
+                success: function (response) {
+                    if (response == "") {
+                        // Cập nhật số lượng trên giao diện
+                        var currentQuantity = parseInt($("#quantity-" + productId).text());
+
+                        // Kiểm tra và tránh số lượng nhỏ hơn 0
+                        if (change < 0 && currentQuantity <= 1) {
+                            return; // Không giảm nếu số lượng bằng 1
+                        }
+
+                        // Cập nhật số lượng
+                        $("#quantity-" + productId).text(currentQuantity + change);
+
+                        var newQuantity = currentQuantity + change;
+                        // Cập nhật tổng giá
+                        var salePrice = parseFloat($("#quantity-" + productId).data("price")); // Lấy giá sản phẩm
+                        var totalChange = salePrice * change;
+
+                        // Cập nhật sumOfPrice
+                        var currentSum = parseFloat($("#sumOfPrice").text().replace(/\D/g, '')); // Loại bỏ dấu phân cách
+                        var newSum = currentSum + totalChange;
+
+                        // Hiển thị lại tổng giá trị giỏ hàng
+                        $("#sumOfPrice").text(newSum.toLocaleString("en-US"));
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function () {
+                    alert("Có lỗi xảy ra khi cập nhật giỏ hàng.");
+                }
+            });
+        }
+
+    });
+
+    $(document).ready(function () {
+        $(".ajax-link").click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: $(this).prop("href"),
+                type: "GET",
+                success: function (data) {
+                    if (data != "") {
+                        alert(data);
+                    } else {
+                        showShoppingCart();
+                    }
+                }
+            });
+        });
+
+    });
+</script>

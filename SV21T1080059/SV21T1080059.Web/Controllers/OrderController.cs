@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SV21T1080059.BusinessLayers;
 using SV21T1080059.DataLayers.SQLServer;
 using SV21T1080059.DomainModels;
@@ -10,16 +11,22 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SV21T1080059.Web.Controllers
 {
+    [Authorize(Roles = $"{WebUserRoles.ADMINSTRATOR},{WebUserRoles.EMPLOYEE}")]
     public class OrderController : Controller
     {
-        private const int PAGE_SIZE = 20;
+        private const int PAGE_SIZE = 30;
         private const string ORDER_SEARCH_CONDITION = "OrderSearchCondition";
-        private bool IsValidPrice(string price)
-        {
-            // Biểu thức chính quy để kiểm tra giá  
-            string pattern = @"^\d+(\.\d+)?$"; // Giá phải là số với một dấu chấm và một hoặc nhiều chữ số sau dấu chấm  
-            return Regex.IsMatch(price, pattern);
-        }
+
+        //Số mặt hàng được hiển thị trên một trang khi tìm kiếm mặt hàng để đưa vào đơn hàng
+        private const int PRODUCT_PAGE_SIZE = 5;
+        //Tên biến session lưu điều kiện tìm kiếm mặt hàng khi lập đơn hàng
+        private const string PRODUCT_SEARCH_CONDITION = "ProductSearchForSale";
+        //Tên biến session lưu giỏ hàng
+        private const string SHOPPING_CART = "ShoppingCart";
+
+        //private const string EMPLOYEE = "EmployeeCondition";
+
+
         public IActionResult Index()
         {
             var condition = ApplicationContext.GetSessionData<OrderSearchInput>(ORDER_SEARCH_CONDITION);
@@ -74,7 +81,7 @@ namespace SV21T1080059.Web.Controllers
             }
             var details = OrderDataService.ListOrderDetails(id);
             var model = new OrderDetailModel()
-            { 
+            {
                 Details = details,
                 Order = order,
             };
@@ -121,11 +128,32 @@ namespace SV21T1080059.Web.Controllers
             return Json(new { success = true, redirectUrl = Url.Action("Details", new { id = id }) });
         }
 
-        public IActionResult Shipping(int id = 0, int shipperId = 0)
+        public IActionResult Shipping(int id = 0)
         {
-            OrderDataService.ShipOrder(id, shipperId);
+            var data = OrderDataService.GetOrder(id);
+            if (data != null)
+            {
+                return PartialView("Shipping", data);
+            }
+
             return RedirectToAction("Details", new { id = id });
         }
+        [HttpPost]
+        public IActionResult Shipping(int id = 0, int shipperID = 0)
+        {
+            var order = OrderDataService.GetOrder(id);
+
+            if (shipperID <= 0)
+            {
+                // Thêm thông báo lỗi nếu thiếu shipperID
+                ModelState.AddModelError("Invalid", "Vui lòng chọn người giao hàng.");
+                return PartialView("Shipping", order);
+            }
+
+            OrderDataService.ShipOrder(id, shipperID);
+            return Json(new { success = true, redirectUrl = Url.Action("Details", new { id = id }) });
+        }
+
 
         public IActionResult Accept(int id = 0)
         {
@@ -152,7 +180,130 @@ namespace SV21T1080059.Web.Controllers
         }
         public IActionResult Create()
         {
-            return View();
+            var condition = ApplicationContext.GetSessionData<ProductSearchInput>(PRODUCT_SEARCH_CONDITION);
+            if (condition == null)
+            {
+                condition = new ProductSearchInput()
+                {
+                    Page = 1,
+                    PageSize = PRODUCT_PAGE_SIZE,
+                    SearchValue = ""
+                };
+            }
+            return View(condition);
         }
+
+        public IActionResult SearchProduct(ProductSearchInput condition)
+        {
+            int rowCount = 0;
+            var data = ProductDataService.ListProducts(out rowCount, condition.Page, condition.PageSize, condition.SearchValue ?? "");
+            var model = new ProductSearchResult()
+            {
+                Page = condition.Page,
+                PageSize = condition.PageSize,
+                SearchValue = condition.SearchValue ?? "",
+                RowCount = rowCount,
+                Data = data
+            };
+            ApplicationContext.SetSessionData(PRODUCT_SEARCH_CONDITION, condition);
+            return View(model);
+        }
+
+        private List<CartItem> GetShoppingCart()
+        {
+            var shoppingCart = ApplicationContext.GetSessionData<List<CartItem>>(SHOPPING_CART);
+            if (shoppingCart == null)
+            {
+                shoppingCart = new List<CartItem>();
+                ApplicationContext.SetSessionData(SHOPPING_CART, shoppingCart);
+            }
+            return shoppingCart;
+        }
+
+        public IActionResult AddToCart(CartItem item)
+        {
+            if (item.SalePrice < 0 || item.Quantity <= 0)
+            {
+                return Json("Giá bán và số lượng không hợp lệ");
+            }
+
+            var shoppingCart = GetShoppingCart();
+            var existsProduct = shoppingCart.FirstOrDefault(m => m.ProductID == item.ProductID);
+            if (existsProduct == null)
+            {
+                shoppingCart.Add(item);
+            }
+            else
+            {
+                existsProduct.Quantity += item.Quantity;
+                existsProduct.SalePrice += item.SalePrice;
+            }
+            ApplicationContext.SetSessionData(SHOPPING_CART, shoppingCart);
+            return Json("");
+        }
+
+        public IActionResult RemoveFromCart(int id = 0)
+        {
+            var shoppingCart = GetShoppingCart();
+            int index = shoppingCart.FindIndex(m => m.ProductID == id);
+            if (index >= 0)
+            {
+                shoppingCart.RemoveAt(index);
+            }
+            ApplicationContext.SetSessionData(SHOPPING_CART, shoppingCart);
+            return Json("");
+        }
+
+        public IActionResult ClearCart()
+        {
+            var shoppingCart = GetShoppingCart();
+            shoppingCart.Clear();
+            ApplicationContext.SetSessionData(SHOPPING_CART, shoppingCart);
+            return Json("");
+        }
+
+        public IActionResult ShoppingCart()
+        {
+            return View(GetShoppingCart());
+        }
+
+        public IActionResult Init(int customerID = 0, string customerPhone = "", string deliveryProvince = "", string deliveryAddress = "")
+        {
+            var shoppingCart = GetShoppingCart();
+            if (shoppingCart.Count == 0)
+            {
+                return Json("Giỏ hàng trống. Vui lòng chọn mặt hàng cần bán");
+            }
+
+            if (customerID == 0 || string.IsNullOrWhiteSpace(deliveryProvince) || string.IsNullOrWhiteSpace(deliveryAddress) || string.IsNullOrWhiteSpace(customerPhone))
+            {
+                return Json("Vui lòng nhập đầy đủ thông tin khách hàng và nơi giao hàng");
+            }
+
+            try
+            {
+                int employeeID = (int)Convert.ToUInt32(User.GetUserData().UserId); // TODO: Thay bằng ID của nhân viên đang đăng nhập
+
+                List<OrderDetail> orderDetails = shoppingCart.Select(item => new OrderDetail()
+                {
+                    ProductID = item.ProductID,
+                    Quantity = item.Quantity,
+                    SalePrice = item.SalePrice,
+                }).ToList();
+
+                int orderID = OrderDataService.InitOrder(employeeID, customerID, customerPhone, deliveryProvince, deliveryAddress, orderDetails);
+
+                // Xóa giỏ hàng sau khi khởi tạo thành công
+                ClearCart();
+
+                return Json(orderID); // Trả về ID đơn hàng
+            }
+            catch (Exception ex)
+            {
+                // Ghi log lỗi (nếu cần)
+                return Json($"Lỗi khi tạo đơn hàng: {ex.Message}");
+            }
+        }
+
     }
 }

@@ -203,6 +203,31 @@
             }
         });
     </script>
+
+    <script>
+        function decodeHtml(html) {
+            const txt = document.createElement("textarea");
+            txt.innerHTML = html;
+            return txt.value;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const rawMessage = '@TempData["SuccessMessage"]';
+            const successMessage = decodeHtml(rawMessage);
+            if (successMessage) {
+                Toastify({
+                    text: successMessage,
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "#4caf50",
+                }).showToast();
+            }
+        });
+    </script>
+
+
  }
 
 

@@ -45,6 +45,14 @@ namespace SV21T1080059.BusinessLayers
             return customerDB.List(page, pageSize, searchValue);
         }
         /// <summary>
+        /// Lấy toàn bộ khách hàng hiện có
+        /// </summary>
+        /// <returns></returns>
+        public static List<Customer> ListOfCustomers()
+        {
+            return customerDB.List();
+        }
+        /// <summary>
         /// Lay thong tin cua 1 khach hang dua vao ma khach hang
         /// </summary>
         /// <param name="id"></param>
@@ -234,6 +242,14 @@ namespace SV21T1080059.BusinessLayers
             return shipperDB.List(page, pageSize, searchValue);
         }
         /// <summary>
+        /// Lấy toàn bộ những người giao hàng hiện có
+        /// </summary>
+        /// <returns></returns>
+        public static List<Shipper> ListOfShippers()
+        {
+            return shipperDB.List();
+        }
+        /// <summary>
         /// Lấy thông tin của 1 giao hàng đưa vào mã giao hàng
         /// </summary>
         /// <param name="id"></param>
@@ -292,6 +308,14 @@ namespace SV21T1080059.BusinessLayers
         {
             rowCount = employeeDB.Count(searchValue);
             return employeeDB.List(page, pageSize, searchValue);
+        }
+        /// <summary>
+        /// Lấy danh sách toàn bộ nhân viên đang làm việc
+        /// </summary>
+        /// <returns></returns>
+        public static List<Employee> ListOfEmployees()
+        {
+            return employeeDB.List();
         }
         /// <summary>
         /// Lấy thông tin của 1 nhân viên đưa vào mã nhân viên

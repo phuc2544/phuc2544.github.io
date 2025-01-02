@@ -8,16 +8,18 @@
 
         <input type="hidden" name="@nameof(Model.Order.Status)" value="@Model.Order.Status" />
 
-        
+
         <div class="btn-group">
-            <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" id="orderProcessingButton">
-                    Xử lý đơn hàng <span class="caret"></span>
-                </button>
-                @if ((Model.Order.Status == Constants.ORDER_INIT) || (Model.Order.Status == Constants.ORDER_ACCEPTED || Model.Order.Status == Constants.ORDER_SHIPPING)
-                || (Model.Order.Status == Constants.ORDER_SHIPPING) || (Model.Order.Status != Constants.ORDER_FINISHED)
-                || (Model.Order.Status == Constants.ORDER_INIT || Model.Order.Status == Constants.ORDER_ACCEPTED))
-                {
+            @if ((Model.Order.Status == Constants.ORDER_INIT)
+            || (Model.Order.Status == Constants.ORDER_ACCEPTED || Model.Order.Status == Constants.ORDER_SHIPPING)
+            || (Model.Order.Status == Constants.ORDER_SHIPPING)
+            || (Model.Order.Status != Constants.ORDER_FINISHED && Model.Order.Status != Constants.ORDER_CANCEL && Model.Order.Status != Constants.ORDER_REJECTED)
+            || (Model.Order.Status == Constants.ORDER_INIT || Model.Order.Status == Constants.ORDER_ACCEPTED))
+            {
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" id="orderProcessingButton">
+                        Xử lý đơn hàng <span class="caret"></span>
+                    </button>
                     <ul class="dropdown-menu" role="menu">
                         @if (Model.Order.Status == Constants.ORDER_INIT)
                         {
@@ -25,7 +27,7 @@
                         }
                         @if (Model.Order.Status == Constants.ORDER_ACCEPTED || Model.Order.Status == Constants.ORDER_SHIPPING)
                         {
-                            <li><a href="~/Order/Shipping/@Model.Order.OrderID?shipperId=@Model.Order.ShipperID" class="btn-modal">Chuyển giao hàng</a></li>
+                            <li><a href="~/Order/Shipping/@Model.Order.OrderID" class="btn-modal">Chuyển giao hàng</a></li>
                         }
                         @if (Model.Order.Status == Constants.ORDER_SHIPPING)
                         {
@@ -41,9 +43,9 @@
                             <li><a href="~/Order/Reject/@Model.Order.OrderID" onclick="return confirm('Xác nhận từ chối đơn hàng này?')">Từ chối đơn hàng</a></li>
                         }
                     </ul>
-                }
-            </div>
-            @if (Model.Order.Status == Constants.ORDER_INIT || Model.Order.Status == Constants.ORDER_CANCEL || Model.Order.Status == Constants.ORDER_REJECTED)
+                </div>
+            }
+            @if (Model.Order.Status == Constants.ORDER_CANCEL || Model.Order.Status == Constants.ORDER_REJECTED)
             {
                 <a href="~/Order/Delete/@Model.Order.OrderID" class="btn btn-sm btn-danger" onclick="return confirm('Có chắc chắn muốn xóa đơn hàng này không?')"><i class="fa fa-trash"></i> Xóa đơn hàng</a>
             }
@@ -84,8 +86,12 @@
                 <p class="form-control">@Model.Order.CustomerAddress</p>
             </div>
             <label class="control-label col-sm-2">Email:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <p class="form-control">@Model.Order.CustomerEmail</p>
+            </div>
+            <label class="control-label col-sm-2">Điện thoại:</label>
+            <div class="col-sm-4">
+                <p class="form-control">@Model.Order.Phone</p>
             </div>
         </div>
 
@@ -186,16 +192,15 @@
     </div>
 </div>
 
-<div id="dialogModal" class="modal fade" role="dialog">
-</div>
+<div id="dialogModal" class="modal fade" role="dialog"></div>
 
 @section scripts {
     <script>
         $(document).ready(function () {
-
-            $(".btn-modal").click(function (e) {
+                    $(".btn-modal").click(function (e) {
                 e.preventDefault();
                 var link = $(this).prop("href");
+                console.log(link); // Kiểm tra URL trong console
                 $.ajax({
                     url: link,
                     type: "GET",

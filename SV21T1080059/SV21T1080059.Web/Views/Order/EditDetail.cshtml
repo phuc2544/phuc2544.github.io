@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3">Số lượng:</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" name="@nameof(Model.Quantity)" value="@Model.Quantity" />
+                        <input type="number" class="form-control" name="@nameof(Model.Quantity)" value="@Model.Quantity" min="1" />
                         @Html.ValidationMessage(nameof(Model.Quantity), new { @style = "color:#f00" })
                     </div>
                 </div>

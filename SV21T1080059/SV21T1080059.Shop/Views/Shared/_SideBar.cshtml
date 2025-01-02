@@ -1,0 +1,35 @@
+﻿<aside class="main-sidebar">
+    <section class="sidebar">
+        <ul class="sidebar-menu" data-widget="tree">
+            <li>
+                <a href="~/">
+                    <i class="fa fa-home"></i> <span>Trang chủ</span>
+                </a>
+            </li>
+            <li class="treeview active">
+                <a href="#">
+                    <i class="fa fa-folder"></i> <span>Danh mục loại hàng</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @foreach (var item in CommonDataService.ListOfCategories())
+                    {
+                        <li><a href="~/Home/Index/@item.CategoryID"><i class="fa fa-circle-o"></i>@item.CategoryName</a></li>
+                    }
+                </ul>
+            </li>
+            <li>
+                <a href="~/OrderTracking/Index">
+                    <i class="fa fa-truck"></i> <span>Theo dõi đơn hàng</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Account/UpdateUser">
+                    <i class="fa fa-user-circle"></i> <span>Hồ sơ</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+</aside>

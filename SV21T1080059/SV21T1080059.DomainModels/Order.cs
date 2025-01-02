@@ -11,6 +11,7 @@ namespace SV21T1080059.DomainModels
         public int OrderID { get; set; }
         public DateTime? OrderTime { get; set; }
         public DateTime? AcceptTime { get; set; }
+        public string Phone { get; set; } = "";
 
         public int CustomerID { get; set; }
         public string CustomerName { get; set; } = "";

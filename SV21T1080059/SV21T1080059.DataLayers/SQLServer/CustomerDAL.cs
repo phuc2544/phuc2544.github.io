@@ -23,8 +23,8 @@ namespace SV21T1080059.DataLayers.SQLServer
 	                            select -1
                             else 
 	                            begin
-                                    insert into Customers(CustomerName, ContactName, Province, Address, Phone, Email, IsLocked)
-                                    values (@CustomerName, @ContactName, @Province, @Address, @Phone, @Email, @IsLocked);
+                                    insert into Customers(CustomerName, ContactName, Province, Address, Phone, Email, IsLocked, Photo)
+                                    values (@CustomerName, @ContactName, @Province, @Address, @Phone, @Email, @IsLocked, @Photo);
                                     select @@IDENTITY; 
                                 end";
                 var parameters = new
@@ -35,7 +35,8 @@ namespace SV21T1080059.DataLayers.SQLServer
                     Address = data.Address ?? "",
                     Phone = data.Phone ?? "",
                     Email = data.Email ?? "",
-                    IsLocked = data.Islocked
+                    IsLocked = data.Islocked,
+                    Photo = data.Photo ?? "",
                 };
                 id = connection.ExecuteScalar<int>(sql: sql, param: parameters, commandType: System.Data.CommandType.Text);
                 connection.Close();
@@ -140,6 +141,19 @@ namespace SV21T1080059.DataLayers.SQLServer
 
             return data;
         }
+        public List<Customer> List()
+        {
+            List<Customer> data = new List<Customer>();
+
+            using (var connection = OpenConnection())
+            {
+                var sql = @"select *  from Customers";
+                data = connection.Query<Customer>(sql: sql, commandType: System.Data.CommandType.Text).ToList();
+                connection.Close();
+            }
+
+            return data;
+        }
 
         public bool Update(Customer data)
         {
@@ -156,7 +170,8 @@ namespace SV21T1080059.DataLayers.SQLServer
 	                                    Address = @Address, 
 	                                    Phone = @Phone, 
 	                                    Email = @Email, 
-	                                    IsLocked = @IsLocked
+	                                    IsLocked = @IsLocked,
+                                        Photo = @Photo
                                     where CustomerID = @CustomerID
                                 end";
                 var parameters = new
@@ -168,7 +183,8 @@ namespace SV21T1080059.DataLayers.SQLServer
                     Phone = data.Phone ?? "",
                     Email = data.Email ?? "",
                     IsLocked = data.Islocked,
-                    CustomerID = data.CustomerID
+                    CustomerID = data.CustomerID,
+                    Photo = data.Photo ?? "",
                 };
                 result = connection.Execute(sql: sql, param: parameters, commandType: System.Data.CommandType.Text) > 0;
                 connection.Close();
