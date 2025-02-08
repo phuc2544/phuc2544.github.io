@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Xác nhận đơn";
+}
+
+<style>
+    .box-primary {
+        display: flex;
+        justify-content: center; /* Căn giữa theo chiều ngang */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        height: 70vh; /* Chiều cao bằng chiều cao của màn hình */
+    }
+
+    .box {
+        text-align: center; /* Căn giữa nội dung trong box */
+        padding: 30px;
+        border-radius: 8px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .back-btn {
+        background-color: #f44336;
+        color: white;
+    }
+
+    .view-btn {
+        background-color: #008CBA;
+        color: white;
+    }
+</style>
+<div class="box box-primary">
+    <div >
+        <h1>Đơn hàng của bạn đã được đặt thành công và đang chờ xác nhận. Cảm ơn bạn đã mua sắm với chúng tôi!</h1>
+        <div>
+            <a href="~/" class="btn back-btn">Quay lại</a>
+            <a href="~/LichSu" class="btn view-btn">Xem Đơn Hàng</a>
+        </div>
+    </div>
+</div>
