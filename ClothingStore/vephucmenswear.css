@@ -1,0 +1,44 @@
+#banner {
+    height: 500px;
+    width: vmin;
+    background-image: url(picture/vechungtoi.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 100px -8px;
+}
+
+#banner>h4 {
+    color: rgb(205, 172, 64);
+    background-color: rgba(240, 248, 255, 0.254);
+    font-size: 60px;
+    padding: 210px;
+    padding-left: 400px;
+}
+
+#title {
+    width: 1176px;
+    height: 1000px;
+    margin: -50px auto 0px;
+    color: rgb(251, 228, 198);
+}
+
+#title .tieu-de {
+    font-size: 35px;
+}
+
+#title>h6 {
+    font-size: 15px;
+    margin: -21px 0px 40px;
+    color: rgb(144, 144, 144);
+}
+
+#title .noi-dung {
+    font-size: 18px;
+}
+
+#anh-hang>img {
+    padding-left: 50px;
+    width: 850px;
+    height: 450px;
+}

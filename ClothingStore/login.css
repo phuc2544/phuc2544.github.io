@@ -1,0 +1,89 @@
+#form {
+    width: 1400px;
+    height: 720px;
+    margin-top: 100px;
+}
+
+.thumb {
+    height: 700px;
+    width: 970px;
+    float: left;
+}
+
+.thumb>img {
+    border-radius: 1em;
+}
+
+.top-thumb {
+    margin-left: 370px;
+    width: 600px;
+    height: 400px;
+    filter: opacity(90%);
+}
+
+.down-thumb {
+    width: 600px;
+    height: 400px;
+    margin-top: -106px;
+    z-index: -1;
+    position: relative;
+    filter: opacity(90%);
+}
+
+.form-login {
+    background: rgb(244, 203, 150);
+    width: 420px;
+    height: 550px;
+    border-radius: 1em;
+    float: right;
+    text-align: center;
+}
+
+.form-login>h2 {
+    color: rgb(172, 111, 30);
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+
+.form-login>input {
+    margin: 10px auto;
+    padding-left: 5px;
+    padding-right: 100px;
+    border-radius: 10px;
+}
+
+.form-login>input:hover {
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.532);
+}
+
+.form-login>p {
+    margin: 10px 50px;
+    color: rgb(177, 114, 32);
+    font-weight: 500;
+}
+
+.form-login>p>input {
+    margin-left: 10px;
+    padding-right: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.form-login>p>input:hover {
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.532);
+}
+
+.form-login>button {
+    margin: 30px 170px;
+    padding: 10px 15px;
+    border-radius: 1em;
+    font-weight: 600;
+    color: rgb(153, 105, 44);
+    background: rgb(235, 181, 110);
+    border: 2px solid rgb(140, 90, 24);
+    cursor: pointer;
+}
+
+.form-login>button:hover {
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.482);
+}

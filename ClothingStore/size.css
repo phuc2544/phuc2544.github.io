@@ -1,0 +1,41 @@
+#tong {
+    width: vmin;
+    height: auto;
+    margin: 100px auto;
+}
+
+#banner {
+    background-image: url(picture/sizebanner.png);
+    width: 100%;
+    height: 600px;
+    background-position-x: -100px;
+    background-position-y: -115px;
+}
+
+#noi-dung {
+    width: 1300px;
+    margin: 0px auto;
+    color: rgb(240, 215, 183);
+}
+
+#noi-dung p {
+    font-size: 18px;
+}
+
+#noi-dung li {
+    font-size: 18px;
+}
+
+#noi-dung p b {
+    color: antiquewhite;
+    font-size: 18px;
+}
+
+#picture {
+    font-size: 15px;
+    text-align: center;
+}
+
+#picture>figcaption {
+    color: rgb(189, 189, 189);
+}

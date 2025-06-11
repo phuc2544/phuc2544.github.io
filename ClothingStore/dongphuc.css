@@ -1,0 +1,78 @@
+/* #banner {
+    background-image: url(picture/bannervest.jpg);
+    height: 550px;
+    width: 1400px;
+    background-position-x: -120px;
+    background-position-y: -50px;
+    margin: 100px auto;
+} */
+
+#cot-tong {
+    margin: 30px auto;
+    width: 1140px;
+    height: 3780px;
+}
+
+#cot1 {
+    float: left;
+    width: 370px;
+    margin-top: -20px;
+    margin-left: -40px;
+}
+
+#cot2 {
+    float: left;
+    width: 370px;
+    margin-top: -25px;
+    margin-left: 15px;
+}
+
+#cot3 {
+    float: left;
+    width: 370px;
+    margin-top: -20px;
+    margin-left: 15px;
+}
+
+.list-dp li {
+    list-style: none;
+    color: rgb(255, 221, 177);
+}
+
+.picture-dp {
+    display: block;
+    overflow: hidden;
+}
+
+.picture-dp img {
+    width: 370px;
+    height: 270px;
+    display: block;
+    transition: all 0.75s ease;
+    filter: opacity(80%);
+}
+
+.picture-dp img:hover {
+    transform: scale(1.1);
+    filter: opacity(100%);
+}
+
+.name-dp {
+    text-align: center;
+    margin-top: -2px;
+    margin-bottom: 20px;
+}
+
+.name-dp p {
+    margin-top: -10px;
+    font-size: 17px;
+}
+
+.name-dp a {
+    font-size: 15px;
+    color: rgb(163, 160, 160);
+}
+
+.name-dp a:hover {
+    color: rgba(245, 245, 245, 0.854);
+}

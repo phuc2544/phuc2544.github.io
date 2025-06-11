@@ -1,0 +1,89 @@
+#footer {
+    background-color: black;
+    height: 300px;
+    max-width: vmin;
+    margin: 0px -8px -10px;
+    border-top: 1px solid rgb(99, 99, 99);
+}
+
+#footer-in {
+    width: 700px;
+    height: auto;
+    margin: 0px auto;
+}
+
+#footer-ds {
+    color: white;
+    padding: 30px 50px;
+    width: 200px;
+    float: left;
+}
+
+#footer-ds .footer-menu li {
+    list-style: none;
+    margin-left: -40px !important;
+}
+
+#footer-ds .footer-menu li a {
+    position: relative;
+    text-decoration: none;
+    color: rgba(245, 245, 245, 0.639);
+    font-size: 18px;
+}
+
+#footer-ds .footer-menu li a::before {
+    content: "";
+    height: 4px;
+    width: 0px;
+    border-bottom: 1px solid white;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#footer-ds .footer-menu li:hover a {
+    color: white;
+}
+
+#footer-ds .footer-menu li:hover a::before {
+    width: 100%;
+}
+
+#footer-thongtin {
+    float: left;
+    color: rgba(245, 245, 245, 0.639);
+    padding: 30px 120px;
+}
+
+#footer-thongtin>h4 {
+    color: white;
+}
+
+#footer-thongtin>p {
+    font-size: 18px;
+    margin-bottom: -15px;
+}
+
+#footer-thongtin>p>a {
+    color: rgba(245, 245, 245, 0.639);
+}
+
+#footer-thongtin>p>a:hover {
+    color: white;
+}
+
+#down-footer {
+    background-color: black;
+    height: 60px;
+    width: vmin;
+    margin: -20px -8px -8px -8px;
+    border-top: 1px solid gray;
+}
+
+#down-footer>p {
+    color: gray;
+    padding-bottom: 5px;
+    font-size: 15px;
+    text-align: center;
+}
