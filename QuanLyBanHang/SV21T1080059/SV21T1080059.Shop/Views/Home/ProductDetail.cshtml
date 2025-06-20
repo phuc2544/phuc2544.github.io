@@ -1,0 +1,222 @@
+﻿@model Product
+@{
+    ViewBag.Title = "Chi tiết mặt hàng";
+}
+<style>
+    .clamp-2-lines {
+        display: -webkit-box; /* Kích hoạt chế độ Flexbox trên webkit */
+        -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
+        -webkit-box-orient: vertical; /* Thiết lập hướng của box */
+        overflow: hidden; /* Ẩn nội dung vượt quá */
+        text-overflow: ellipsis; /* Thêm dấu "..." */
+        white-space: normal; /* Cho phép ngắt dòng */
+    }
+
+    .image-thumbnails-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .image-thumbnails {
+        display: flex;
+        overflow-x: auto; /* Cho phép cuộn ngang nếu ảnh dài */
+        gap: 10px; /* Khoảng cách giữa các ảnh */
+    }
+
+        .image-thumbnails img {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+            .image-thumbnails img:hover {
+                transform: scale(1.1); /* Phóng to ảnh khi hover */
+            }
+
+    #prev-button, #next-button {
+        background: brown;
+        color: white;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+</style>
+<div class="box box-primary">
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-5 text-center">
+                <img id="main-image" src="@(string.IsNullOrEmpty(Model.Photo) ? Url.Content($"~/images/products/nophoto.png") : Url.Content($"~/images/products/{Model.Photo}"))"
+                     alt="" style="height: 330px; width: 320px;">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- Ảnh nhỏ -->
+                        <div class="image-thumbnails-container">
+                            <button id="prev-button" class="btn btn-sm" style="background: brown; color: white;">&lt;</button>
+                            <div class="image-thumbnails">
+                                <img src="~/images/products/@Model.Photo" alt=""
+                                     class="img-thumbnail small-image" style="width: 65px; height: 65px; cursor: pointer; margin: 5px;" />
+                                @foreach (var image in ProductDataService.ListPhotos(Model.ProductID))
+                                {
+                                    <img src="~/images/products/photos/@image.Photo" alt=""
+                                         class="img-thumbnail small-image" style="width: 65px; height: 65px; cursor: pointer; margin: 5px;" />
+                                }
+                            </div>
+                            <button id="next-button" class="btn btn-sm" style="background: brown; color: white;">&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="frmAddToCart" action="~/Shopping/AddToCart" method="post">
+                <input type="hidden" name="@nameof(Model.ProductID)" value="@Model.ProductID" />
+                <input type="hidden" name="@nameof(Model.ProductName)" value="@Model.ProductName" />
+                <input type="hidden" name="@nameof(Model.Photo)" value="@Model.Photo" />
+                <input type="hidden" name="SalePrice" value="@Model.Price" />
+                <input type="hidden" name="Quantity" value=1 />
+                <input type="hidden" name="@nameof(Model.Unit)" value="@Model.Unit" />
+                <div class="col-md-7">
+                    <h3 class="clamp-2-lines" title="@Model.ProductName" style="font-weight: bold;">@Model.ProductName</h3>
+                    <p>@Model.ProductDescription</p>
+                    <p>
+                        <u style="font-weight:bold; font-size:15px;">@OrderDataService.GetSoldOrderOfCustomer(Model.ProductID)</u>
+                        Đã Bán
+                    </p>
+                    <p class="clamp-2-lines" title="@(Model.Price.ToString("N0") + " đ")"
+                       style=" -webkit-line-clamp: 1!important; color: brown; font-size:26px; font-weight: bold; margin-top: 10px;">
+                        @(Model.Price.ToString("N0") + " đ")
+                    </p>
+                    <button type="submit" class="btn btn-sm" style="background: brown; color: white; font-size: 18px;">
+                        <i class="fa fa-shopping-cart"></i> Mua ngay
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-12">
+                <h2 style="font-weight:bold;">Mô tả</h2>
+                <hr />
+                @foreach (var item in ProductDataService.ListPhotos(Model.ProductID))
+                {
+                    <ul>
+                        <li style="font-size: 18px;">@item.Description</li>
+                    </ul>
+                }
+            </div>
+        </div>
+        <hr />
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-12">
+                <h2 style="font-weight:bold;">Thuộc tính</h2>
+                <hr />
+                @foreach (var item in ProductDataService.ListAttributes(Model.ProductID))
+                {
+                    <div class="row" style="height: 30px;">
+                        <div class="col-sm-4">
+                            <p style="font-size: 18px; margin-left: 20px;">@item.AttributeName</p>
+                        </div>
+                        <div class="col-md-1" style="display: flex; align-items: center;">
+                            <div style="border-left: 1px solid lightgray; height: 50px; margin-top:-10px;"></div> <!-- Đường gạch dọc -->
+                        </div>
+                        <div class="col-sm-7">
+                            <p style="font-size: 18px;">@item.AttributeValue</p>
+                        </div>
+                    </div>
+                    <hr />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // Cập nhật ảnh chính khi click vào ảnh nhỏ
+            $(".small-image").click(function () {
+                var newImageSrc = $(this).attr("src");
+                $("#main-image").attr("src", newImageSrc); // Thay đổi ảnh chính
+            });
+
+            // Chuyển đổi ảnh nhỏ khi có nút next hoặc prev
+            var currentImageIndex = 0;
+            var images = $(".small-image");
+            var totalImages = images.length;
+            var imagesPerRow = 4;  // Số ảnh hiển thị trong một hàng
+
+            // Hiển thị ảnh tiếp theo
+            $("#next-button").click(function () {
+                if (currentImageIndex < totalImages - imagesPerRow) {
+                    currentImageIndex++;
+                    updateImageGallery();
+                }
+            });
+
+            // Hiển thị ảnh trước
+            $("#prev-button").click(function () {
+                if (currentImageIndex > 0) {
+                    currentImageIndex--;
+                    updateImageGallery();
+                }
+            });
+
+            // Cập nhật ảnh nhỏ hiển thị
+            function updateImageGallery() {
+                var offset = currentImageIndex * 75; // Điều chỉnh khoảng cách cuộn
+                $(".image-thumbnails").animate({
+                    scrollLeft: offset
+                }, 300);
+            }
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $(".frmAddToCart").submit(function (e) {
+                e.preventDefault();
+
+                var url = $(this).prop("action");
+                var method = $(this).prop("method");
+                var data = $(this).serializeArray();
+
+                $.ajax({
+                    url: url,
+                    type: method,
+                    data: data,
+                    success: function (result) {
+                        if (result !== "") {
+                            alert(result);  // Hiển thị thông báo lỗi nếu có
+                        } else {
+                            updateCartQuantity();
+                        }
+                    },
+                    error: function (xhr) {
+                        if (xhr.status === 401) {
+                            // Chuyển hướng đến trang đăng nhập
+                            window.location.href = '@Url.Action("Login", "Account")';
+                        } else {
+                            alert("Đã xảy ra lỗi, vui lòng thử lại.");
+                        }
+                    }
+                });
+            });
+
+        });
+
+        function updateCartQuantity() {
+            $.ajax({
+                url: '@Url.Action("GetCartCount", "Shopping")',
+                type: 'GET',
+                success: function (data) {
+                    $('#cart-total-quantity').text(data); // Cập nhật số lượng sản phẩm
+                },
+                error: function () {
+                    console.error("Không thể lấy dữ liệu giỏ hàng");
+                }
+            });
+        }
+
+    </script>
+}

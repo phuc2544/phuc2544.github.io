@@ -1,54 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\webcsharp\\SV21T1080059\\",
+  "WorkspaceRootPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\github\\phuc2544.github.io\\sv21t1080059\\sv21t1080059.shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\github\\phuc2544.github.io\\sv21t1080059\\sv21t1080059.shop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\github\\phuc2544.github.io\\sv21t1080059\\sv21t1080059.shop\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\github\\phuc2544.github.io\\sv21t1080059\\sv21t1080059.shop\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\github\\phuc2544.github.io\\sv21t1080059\\sv21t1080059.shop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\controllers\\ordertracking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\github\\phuc2544.github.io\\sv21t1080059\\sv21t1080059.shop\\controllers\\ordertracking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\controllers\\ordertracking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\views\\ordertracking\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\github\\phuc2544.github.io\\sv21t1080059\\sv21t1080059.shop\\views\\ordertracking\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\views\\ordertracking\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\controllers\\shoppingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\controllers\\shoppingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\views\\shopping\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\views\\shopping\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\views\\shopping\\_shoppingcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\views\\shopping\\_shoppingcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\github\\phuc2544.github.io\\sv21t1080059\\sv21t1080059.shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|d:\\webcsharp\\sv21t1080059\\sv21t1080059.shop\\views\\home\\test.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8E9E858E-63B6-4698-B9B0-A3043A78755B}|SV21T1080059.Shop\\SV21T1080059.Shop.csproj|solutionrelative:sv21t1080059.shop\\views\\home\\test.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,27 +46,26 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 7,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "SV21T1080059.Shop\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\HomeController.cs",
               "RelativeToolTip": "SV21T1080059.Shop\\Controllers\\HomeController.cs",
               "ViewState": "AgIAADEAAAAAAAAAAAAQwEAAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T14:50:03.884Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "SV21T1080059.Shop\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\AccountController.cs",
               "RelativeToolTip": "SV21T1080059.Shop\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAUwBMAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAUwDYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-27T03:44:53.658Z",
               "IsPinned": true,
@@ -92,162 +75,74 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "OrderTracking.cs",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\OrderTracking.cs",
+              "DocumentMoniker": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\OrderTracking.cs",
               "RelativeDocumentMoniker": "SV21T1080059.Shop\\Controllers\\OrderTracking.cs",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\OrderTracking.cs",
+              "ToolTip": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\OrderTracking.cs",
               "RelativeToolTip": "SV21T1080059.Shop\\Controllers\\OrderTracking.cs",
               "ViewState": "AgIAADkAAAAAAAAAAAAYwEkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-28T03:15:27.063Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\Login.cshtml",
+              "DocumentMoniker": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "SV21T1080059.Shop\\Views\\Account\\Login.cshtml",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "SV21T1080059.Shop\\Views\\Account\\Login.cshtml",
               "ViewState": "AgIAACsAAAAAAAAAAAAAAD0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T11:59:15.494Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T11:59:15.494Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "SignUp.cshtml",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\SignUp.cshtml",
+              "DocumentMoniker": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\SignUp.cshtml",
               "RelativeDocumentMoniker": "SV21T1080059.Shop\\Views\\Account\\SignUp.cshtml",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\SignUp.cshtml",
+              "ToolTip": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\SignUp.cshtml",
               "RelativeToolTip": "SV21T1080059.Shop\\Views\\Account\\SignUp.cshtml",
               "ViewState": "AgIAAEAAAAAAAAAAAAAAAE4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T11:57:55.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T11:57:55.689Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "ChangePassword.cshtml",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\ChangePassword.cshtml",
+              "DocumentMoniker": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\ChangePassword.cshtml",
               "RelativeDocumentMoniker": "SV21T1080059.Shop\\Views\\Account\\ChangePassword.cshtml",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\ChangePassword.cshtml",
+              "ToolTip": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\Account\\ChangePassword.cshtml",
               "RelativeToolTip": "SV21T1080059.Shop\\Views\\Account\\ChangePassword.cshtml",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T11:51:43.537Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T11:51:43.537Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "SV21T1080059.Shop\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "SV21T1080059.Shop\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAD8AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T11:45:13.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T11:45:13.64Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Search.cshtml",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\OrderTracking\\Search.cshtml",
+              "DocumentMoniker": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\OrderTracking\\Search.cshtml",
               "RelativeDocumentMoniker": "SV21T1080059.Shop\\Views\\OrderTracking\\Search.cshtml",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\OrderTracking\\Search.cshtml",
+              "ToolTip": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Shop\\Views\\OrderTracking\\Search.cshtml",
               "RelativeToolTip": "SV21T1080059.Shop\\Views\\OrderTracking\\Search.cshtml",
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAE0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T11:35:51.864Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "464d6d2f-4b64-4ecd-950b-4a88f902a667",
-        "Display": 0,
-        "X": 227,
-        "Y": 189,
-        "Width": 1018,
-        "Height": 593,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ShoppingController.cs",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\ShoppingController.cs",
-              "RelativeDocumentMoniker": "SV21T1080059.Shop\\Controllers\\ShoppingController.cs",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Controllers\\ShoppingController.cs",
-              "RelativeToolTip": "SV21T1080059.Shop\\Controllers\\ShoppingController.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAowGYAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T14:20:41.978Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Shopping\\Index.cshtml",
-              "RelativeDocumentMoniker": "SV21T1080059.Shop\\Views\\Shopping\\Index.cshtml",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Shopping\\Index.cshtml",
-              "RelativeToolTip": "SV21T1080059.Shop\\Views\\Shopping\\Index.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGEAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-13T14:25:04.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_ShoppingCart.cshtml",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Shopping\\_ShoppingCart.cshtml",
-              "RelativeDocumentMoniker": "SV21T1080059.Shop\\Views\\Shopping\\_ShoppingCart.cshtml",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Shopping\\_ShoppingCart.cshtml",
-              "RelativeToolTip": "SV21T1080059.Shop\\Views\\Shopping\\_ShoppingCart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-26T08:28:05.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "test.cshtml",
-              "DocumentMoniker": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Home\\test.cshtml",
-              "RelativeDocumentMoniker": "SV21T1080059.Shop\\Views\\Home\\test.cshtml",
-              "ToolTip": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Shop\\Views\\Home\\test.cshtml",
-              "RelativeToolTip": "SV21T1080059.Shop\\Views\\Home\\test.cshtml",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAYwIcAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T04:43:22.019Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T11:35:51.864Z"
             }
           ]
         }

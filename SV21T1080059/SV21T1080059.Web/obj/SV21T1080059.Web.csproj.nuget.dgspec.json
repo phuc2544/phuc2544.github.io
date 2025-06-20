@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Web\\SV21T1080059.Web.csproj": {}
+    "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Web\\SV21T1080059.Web.csproj": {}
   },
   "projects": {
-    "D:\\webcsharp\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj": {
+    "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj",
+        "projectUniqueName": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj",
         "projectName": "SV21T1080059.BusinessLayers",
-        "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj",
-        "packagesPath": "C:\\Users\\phuc_le\\.nuget\\packages\\",
-        "outputPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.BusinessLayers\\obj\\",
+        "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj",
+        "packagesPath": "C:\\Users\\phuct\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.BusinessLayers\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\phuc_le\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phuct\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,11 +33,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj": {
-                "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj"
+              "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj": {
+                "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj"
               },
-              "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj": {
-                "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj"
+              "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj": {
+                "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj"
               }
             }
           }
@@ -72,24 +72,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj": {
+    "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj",
+        "projectUniqueName": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj",
         "projectName": "SV21T1080059.DataLayers",
-        "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj",
-        "packagesPath": "C:\\Users\\phuc_le\\.nuget\\packages\\",
-        "outputPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DataLayers\\obj\\",
+        "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj",
+        "packagesPath": "C:\\Users\\phuct\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DataLayers\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\phuc_le\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phuct\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -105,8 +105,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj": {
-                "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj"
+              "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj": {
+                "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj"
               }
             }
           }
@@ -151,24 +151,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj": {
+    "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj",
+        "projectUniqueName": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj",
         "projectName": "SV21T1080059.DomainModels",
-        "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj",
-        "packagesPath": "C:\\Users\\phuc_le\\.nuget\\packages\\",
-        "outputPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\obj\\",
+        "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj",
+        "packagesPath": "C:\\Users\\phuct\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\phuc_le\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phuct\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -216,24 +216,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Web\\SV21T1080059.Web.csproj": {
+    "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Web\\SV21T1080059.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Web\\SV21T1080059.Web.csproj",
+        "projectUniqueName": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Web\\SV21T1080059.Web.csproj",
         "projectName": "SV21T1080059.Web",
-        "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Web\\SV21T1080059.Web.csproj",
-        "packagesPath": "C:\\Users\\phuc_le\\.nuget\\packages\\",
-        "outputPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.Web\\obj\\",
+        "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Web\\SV21T1080059.Web.csproj",
+        "packagesPath": "C:\\Users\\phuct\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\phuc_le\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phuct\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -249,14 +249,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\webcsharp\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj": {
-                "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj"
+              "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj": {
+                "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.BusinessLayers\\SV21T1080059.BusinessLayers.csproj"
               },
-              "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj": {
-                "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj"
+              "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj": {
+                "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DataLayers\\SV21T1080059.DataLayers.csproj"
               },
-              "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj": {
-                "projectPath": "D:\\webcsharp\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj"
+              "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj": {
+                "projectPath": "D:\\GitHub\\phuc2544.github.io\\SV21T1080059\\SV21T1080059.DomainModels\\SV21T1080059.DomainModels.csproj"
               }
             }
           }
@@ -300,7 +300,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

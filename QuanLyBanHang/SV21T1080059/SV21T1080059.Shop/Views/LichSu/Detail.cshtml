@@ -1,0 +1,147 @@
+﻿@model OrderDetailModel
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+}
+
+<div class="box box-primary">
+    <div class="box-header text-right">
+        <input type="hidden" name="@nameof(Model.Order.Status)" value="@Model.Order.Status" />
+        <div class="row" style="margin-left:0px;">
+            <div class="row">
+                <div class="col-sm-4 text-left">
+                    <h4><b>Địa chỉ nhận hàng:</b></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1 text-right"><i class="fa fa-map-marker" style="font-size:15px;"></i></div>
+                <div class="col-sm-10 text-left">
+                    <p style="font-size:15px;">@Model.Order.CustomerContactName <span style="color:darkgrey;font-size:13px !important;">@Model.Order.CustomerPhone</span></p>
+                    <p style="font-size:13px;">@Model.Order.DeliveryAddress, @Model.Order.DeliveryProvince</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7 text-left">
+                    <h4>
+                        <b>Trạng thái đơn hàng:</b>
+                        <span style="font-size: 16px;
+                            @if(Model.Order.Status == Constants.ORDER_CANCEL || Model.Order.Status == Constants.ORDER_REJECTED) {
+                                @:color: red;
+                            } else {
+                                @:color: green;
+                            }">
+                            @Model.Order.StatusDescription
+                        </span>
+
+
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1 text-right"></div>
+                <div class="col-sm-11 text-left">
+                    <p style="font-size:15px;">Thời điểm đặt: @Model.Order.OrderTime?.ToString("dd/MM/yyyy hh:mm tt")</p>
+                    @if (Model.Order.AcceptTime != null)
+                    {
+                        <p style="font-size:15px;">Thời điểm xác nhận: @Model.Order.AcceptTime?.ToString("dd/MM/yyyy hh:mm tt")</p>
+                    }
+                    @if (Model.Order.ShippedTime != null)
+                    {
+                        <p style="font-size:15px;">Thời điểm nhận giao hàng: @Model.Order.ShippedTime?.ToString("dd/MM/yyyy hh:mm tt")</p>
+                        <b style="margin-left:15px">Thông tin vận chuyển:</b>
+                        <p style="margin-left:15px">@Model.Order.ShipperName <span style="color:darkgrey;">@Model.Order.ShipperPhone</span></p>
+                    }
+                    @if (Model.Order.FinishedTime != null)
+                    {
+                        <p style="font-size:15px;">Thời điểm hoàn tất: @Model.Order.FinishedTime?.ToString("dd/MM/yyyy hh:mm tt")</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="margin: 0px"/>
+    <div class="box-body form-horizontal">
+        <div class="row">
+            <div class="col-md-12">
+                <h4><b>Danh sách mặt hàng thuộc đơn hàng: </b></h4>
+            </div>
+        </div>
+        @{
+            int totalQuantity = 0;
+            decimal totalSum = 0;
+        }
+        @foreach (var item in OrderDataService.ListOrderDetails(Model.Order.OrderID))
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2 text-center">
+                        <img src="@(string.IsNullOrEmpty(item.Photo) ? Url.Content($"~/images/products/nophoto.png") : Url.Content($"~/images/products/{item.Photo}"))"
+                             alt="" style="height: 90px; width: 90px;" />
+                    </div>
+                    <div class="col-md-6">
+                        <p class="clamp-2-lines" title="@item.ProductName" style="font-size: 16px; font-weight: bold;">@item.ProductName</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-size: 14px;">@item.SalePrice.ToString("N0") đ</p>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="mx-2" id="quantity-@item.ProductID">x @item.Quantity</span>
+                    </div>
+                </div>
+            </div>
+            totalSum += item.TotalPrice;
+            totalQuantity += item.Quantity;
+        }
+        <div class="row text-right">
+            <div class="col-md-12">
+                <b style="font-size:16px;">Thành tiền (@totalQuantity sản phẩm): <span>@totalSum.ToString("N0") đ</span></b>
+            </div>
+        </div>
+        <div class="row text-right">
+            <div class="col-md-12">
+                @if (Model.Order.Status == Constants.ORDER_INIT || Model.Order.Status == Constants.ORDER_ACCEPTED)
+                {
+                    <a href="~/LichSu/Cancel/@Model.Order.OrderID"
+                       class="btn btn-danger ajax-link"
+                       data-product-name="Xác nhận hủy đơn hàng này?">Hủy đơn hàng</a>
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<div id="dialogModal" class="modal fade" role="dialog"></div>
+
+@section scripts {
+    <script>
+
+
+        $(document).ready(function () {
+            $(".ajax-link").click(function (e) {
+                e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+
+                var url = $(this).attr("href");
+                var productName = $(this).data("product-name");
+
+                // Hiển thị hộp thoại xác nhận
+                if (confirm(`${productName}`)) {
+                    // Nếu người dùng nhấn OK, gửi yêu cầu AJAX
+                    $.ajax({
+                        url: url,
+                        type: "GET",
+                        success: function (response) {
+                            location.reload();
+                        },
+                        error: function () {
+                            alert("Có lỗi xảy ra khi xoá mặt hàng!");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+}
