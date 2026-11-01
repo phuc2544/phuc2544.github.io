@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thiệp mời hẹn hò 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7eddb; --cream2:#efe0c3; --gold:#c9a45c; --ink:#5b4636; --rose:#d9778c;
+  --bg1:#2b1d33; --bg2:#5b3a4d;
+  --w:min(340px,90vw); --h:570px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+html,body{min-height:100%}
+body{
+  font-family:'Quicksand','Segoe UI',Arial,sans-serif; color:var(--ink);
+  background:radial-gradient(ellipse at 50% 30%,var(--bg2),var(--bg1) 75%) fixed;
+  min-height:100dvh; display:flex; align-items:center; justify-content:center;
+  overflow-x:hidden; padding:90px 0 40px; color-scheme:dark;
+}
+.sky{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;color:#ffe7a3;text-shadow:0 0 8px #ffd978,0 0 16px #ffcf6a;
+  animation:tw var(--d,3s) ease-in-out infinite;animation-delay:var(--dl,0s);opacity:.2}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.5) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(25deg)}}
+
+.wrap{position:relative;width:var(--w);height:var(--h)}
+.around{position:absolute;inset:-70px -50px;pointer-events:none}
+
+/* sticker */
+.sticker{position:absolute;left:50%;top:-78px;width:118px;z-index:30;pointer-events:none;
+  transform:translateX(-50%) rotate(-6deg);filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));
+  animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateX(-50%) rotate(4deg) translateY(-6px)}}
+.heart{animation:beat 1.4s ease-in-out infinite;transform-origin:61px 26px}
+@keyframes beat{50%{transform:scale(1.18)}}
+
+.stage{position:absolute;inset:0;perspective:1500px}
+.card{position:absolute;inset:0;cursor:pointer;transition:transform .9s cubic-bezier(.65,0,.25,1);
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.45));outline:none}
+.card:hover:not(.open){transform:translateY(-6px) rotate(-.6deg)}
+.card.open{cursor:default}
+
+/* inner page */
+.page{position:absolute;inset:0;border-radius:16px;padding:68px 22px 18px;text-align:center;
+  background:linear-gradient(160deg,#fbf3e4,var(--cream));border:2px solid var(--gold);
+  outline:1px solid #e6cf9d;outline-offset:-9px;overflow:hidden}
+.page h2{font-family:'Dancing Script',cursive;font-size:34px;color:var(--rose);line-height:1.1}
+.date{font-size:12.5px;letter-spacing:.5px;margin-top:2px;text-transform:capitalize}
+.time{font-size:26px;font-weight:700;color:var(--gold);margin:2px 0 8px;letter-spacing:2px}
+.plan{list-style:none;padding:0;text-align:left;border-left:2px dashed #dcc596;margin:0 6px 0 14px}
+.item{position:relative;padding:5px 0 5px 22px;opacity:0;transform:translateY(12px);
+  transition:opacity .6s ease,transform .6s ease}
+.item::before{content:"";position:absolute;left:-7px;top:12px;width:12px;height:12px;border-radius:50%;
+  background:var(--rose);border:2px solid var(--cream)}
+.item b{display:block;font-size:13.5px}
+.item b i{font-style:normal;color:var(--gold);margin-right:6px}
+.item span{font-size:12px;opacity:.85}
+.open .item{opacity:1;transform:none;transition-delay:calc(.8s + var(--i)*.13s)}
+.note{margin-top:10px;font-size:12.5px;font-weight:600;opacity:0;transition:opacity .6s 1.7s}
+.open .note,.open .close{opacity:1}
+.close{margin-top:8px;border:1.5px solid var(--gold);background:transparent;color:var(--ink);
+  font:600 12px 'Quicksand',sans-serif;padding:5px 14px;border-radius:20px;cursor:pointer;opacity:0;transition:opacity .6s 1.8s}
+.close:hover{background:var(--cream2)}
+
+/* doors */
+.door{position:absolute;top:0;bottom:0;width:50%;transform-style:preserve-3d;
+  transition:transform 1.5s cubic-bezier(.65,0,.25,1),opacity .5s ease 1s;z-index:10}
+.door.l{left:0;transform-origin:left center}
+.door.r{right:0;transform-origin:right center}
+.open .door.l{transform:rotateY(-105deg);opacity:0}
+.open .door.r{transform:rotateY(105deg);opacity:0}
+.open .door{pointer-events:none}
+.face{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;
+  background:linear-gradient(160deg,#fbf3e4,var(--cream) 55%,var(--cream2));border:2px solid var(--gold)}
+.l .face{border-radius:16px 0 0 16px;border-right-width:1px}
+.r .face{border-radius:0 16px 16px 0;border-left-width:1px}
+.face.back{transform:rotateY(180deg);background:var(--cream2)}
+.fi{position:absolute;top:0;height:100%;width:var(--w);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:60px 26px 0}
+.l .fi{left:-2px}.r .fi{right:-2px}
+.fi::before{content:"";position:absolute;inset:9px;border:1px solid #dcc596;border-radius:10px}
+.fi .small{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.fi h1{font-family:'Dancing Script',cursive;font-size:44px;line-height:1;color:var(--rose);margin:10px 0}
+.fi .when{font-size:15px;font-weight:700}
+.seal{margin:22px 0 10px;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:28px;
+  background:radial-gradient(circle at 35% 30%,#ee8fa3,#c4566e);box-shadow:0 4px 10px rgba(150,40,70,.45),inset 0 0 0 3px rgba(255,255,255,.25);
+  animation:beat 1.6s ease-in-out infinite}
+.tap{font-size:12.5px;font-weight:600;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.star,.sticker,.heart,.seal,.tap{animation:none}}
+</style>
+</head>
+<body>
+<div class="sky" id="sky"></div>
+
+<div class="wrap">
+  <div class="around" id="around"></div>
+
+  <svg class="sticker" viewBox="0 0 122 118" aria-label="Sticker cặp đôi">
+    <circle cx="61" cy="59" r="57" fill="#fff"/>
+    <circle cx="61" cy="59" r="52" fill="#fff4de"/>
+    <circle cx="60" cy="63" r="5" fill="#f4b8a0" opacity="0"/>
+    <!-- pigtails -->
+    <circle cx="61" cy="64" r="5" fill="#7a4a2e"/><circle cx="94" cy="64" r="5" fill="#7a4a2e"/>
+    <!-- bodies -->
+    <rect x="32" y="74" width="26" height="26" rx="10" fill="#8fb8de"/>
+    <rect x="64" y="74" width="26" height="26" rx="10" fill="#f7a8b8"/>
+    <rect x="52" y="85" width="20" height="6" rx="3" fill="#ffd9bf"/>
+    <!-- faces -->
+    <circle cx="45" cy="57" r="16" fill="#ffdcc2"/>
+    <circle cx="77" cy="58" r="16" fill="#ffdcc2"/>
+    <path d="M29 54a16 16 0 0 1 32 0q-8-7-16-3q-8-4-16 3z" fill="#4a3328"/>
+    <path d="M61 56a16 16 0 0 1 32 0q-8-8-16-4q-8-4-16 4z" fill="#7a4a2e"/>
+    <path d="M86 40l6-5v10zM86 40l-6-5v10z" fill="#ff7b9c"/>
+    <g fill="#3a2a22"><circle cx="40" cy="58" r="1.9"/><circle cx="50" cy="58" r="1.9"/>
+      <circle cx="72" cy="59" r="1.9"/><circle cx="82" cy="59" r="1.9"/></g>
+    <g fill="#ff9fb3" opacity=".7"><ellipse cx="35" cy="63" rx="3.4" ry="2"/><ellipse cx="55" cy="63" rx="3.4" ry="2"/>
+      <ellipse cx="67" cy="64" rx="3.4" ry="2"/><ellipse cx="87" cy="64" rx="3.4" ry="2"/></g>
+    <g fill="none" stroke="#3a2a22" stroke-width="1.6" stroke-linecap="round">
+      <path d="M42 64q3 3 6 0"/><path d="M74 65q3 3 6 0"/></g>
+    <path class="heart" d="M61 36C40 22 52 6 61 18C70 6 82 22 61 36z" fill="#ef5a78" stroke="#fff" stroke-width="3" paint-order="stroke"/>
+  </svg>
+
+  <div class="stage">
+    <div class="card" id="card" role="button" tabindex="0" aria-label="Chạm để mở thiệp mời">
+      <div class="page">
+        <h2>Hẹn hò nhé 💕</h2>
+        <div class="date" id="date">Chiều nay</div>
+        <div class="time">14:00</div>
+        <ul class="plan">
+          <li class="item" style="--i:0"><b><i>14:00</i>☕ Gặp nhau &amp; cà phê</b><span>Quán T Roaster 31 đào tấn</span></li>
+          <li class="item" style="--i:1"><b><i>15:30</i>🌳 Chụp ảnh PhotoBooth</b><span>Lermer PhotoBooth 17 Trần Cao Vân</span></li>
+          <li class="item" style="--i:2"><b><i>14:30</i>🎬 Xem phim</b><span>Bắp rang bơ chia đôi nha</span></li>
+          <li class="item" style="--i:3"><b><i>18:30</i>🍜 Ăn tối</b><span>Chuông Nướng 27 Hà Nội</span></li>
+          <li class="item" style="--i:4"><b><i>20:00</i>✨ Ngắm đèn thành phố</b><span>Kết thúc ngày bằng một cái ôm</span></li>
+        </ul>
+        <p class="note">Nhớ mặc đẹp và mang theo nụ cười nhé 💗</p>
+        <button class="close" id="close">Đóng thiệp</button>
+      </div>
+
+      <div class="door l"><div class="face"><div class="fi">
+        <div class="small">Thiệp mời</div><h1>Hẹn hò</h1><div class="when" data-when>Chiều nay · 14:00</div>
+        <div class="seal">💗</div><div class="tap">Chạm để mở thiệp 💌</div></div></div><div class="face back"></div></div>
+
+      <div class="door r"><div class="face"><div class="fi">
+        <div class="small">Thiệp mời</div><h1>Hẹn hò</h1><div class="when" data-when>Chiều nay · 14:00</div>
+        <div class="seal">💗</div><div class="tap">Chạm để mở thiệp 💌</div></div></div><div class="face back"></div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const card=document.getElementById('card');
+function setOpen(v){card.classList.toggle('open',v);card.setAttribute('aria-label',v?'Thiệp đã mở':'Chạm để mở thiệp mời')}
+card.addEventListener('click',()=>{if(!card.classList.contains('open'))setOpen(true)});
+card.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!card.classList.contains('open')){e.preventDefault();setOpen(true)}});
+document.getElementById('close').addEventListener('click',e=>{e.stopPropagation();setOpen(false)});
+
+try{
+  const d=new Date().toLocaleDateString('vi-VN',{weekday:'long',day:'2-digit',month:'2-digit',year:'numeric'});
+  document.getElementById('date').textContent=d;
+  document.querySelectorAll('[data-when]').forEach(el=>el.textContent='Hôm nay · 14:00');
+}catch(e){}
+
+const glyphs=['✦','✧','✦','⋆','★'];
+function sprinkle(box,n,min,max){
+  for(let i=0;i<n;i++){
+    const s=document.createElement('span');s.className='star';
+    s.textContent=glyphs[i%glyphs.length];
+    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.fontSize=(min+Math.random()*(max-min))+'px';
+    s.style.setProperty('--d',(2+Math.random()*3)+'s');
+    s.style.setProperty('--dl',(-Math.random()*4)+'s');
+    box.appendChild(s);
+  }
+}
+sprinkle(document.getElementById('sky'),45,8,18);
+sprinkle(document.getElementById('around'),22,12,26);
+</script>
+</body>
+</html>
